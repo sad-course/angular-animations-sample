@@ -33,7 +33,7 @@
         *ngFor="let task of tasks; trackBy: trackById"
         [task]="task"
         (toggle)="toggleTask($event)"
-        (remove)="removeTask($event)"
+        (removeDone)="removeTask($event)"
       />
     </ul>
 

@@ -46,31 +46,20 @@ import { Task } from '../app';
     ]),
   ],
 })
-export class TaskComponent implements OnChanges {
+export class TaskComponent {
   @Input() task!: Task;
-  /** Driven by the parent — true when this task should animate out */
-  @Input() removing = false;
 
   @Output() toggle = new EventEmitter<number>();
-  @Output() remove = new EventEmitter<number>();
-  /** Emitted after the leave-animation finishes so parent can drop the item */
   @Output() removeDone = new EventEmitter<number>();
 
   animState: 'active' | 'removing' = 'active';
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['removing'] && this.removing && this.animState !== 'removing') {
-      this.animState = 'removing';
-    }
-  }
 
   onToggle(): void {
     this.toggle.emit(this.task.id);
   }
 
   onRemoveClick(): void {
-    // Ask the parent to mark this task for removal
-    this.remove.emit(this.task.id);
+    this.animState='removing'
   }
 
   onAnimationDone(event: { toState: string }): void {
