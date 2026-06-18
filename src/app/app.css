@@ -1,0 +1,172 @@
+/* ── Reset & base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:host {
+  display: block;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Shell ────────────────────────────────────────────────── */
+.todo-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 16px 80px;
+  background: #f0f2f5;
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.todo-card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.todo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.5px;
+}
+
+.todo-badge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #6366f1;
+  background: #eef2ff;
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+/* ── Add Task Row ─────────────────────────────────────────── */
+.add-task-row {
+  display: flex;
+  gap: 10px;
+}
+
+.add-task-input {
+  flex: 1;
+  height: 44px;
+  padding: 0 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #111827;
+  outline: none;
+  transition: border-color 200ms, box-shadow 200ms;
+  background: #fafafa;
+}
+
+.add-task-input::placeholder {
+  color: #9ca3af;
+}
+
+.add-task-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+  background: #fff;
+}
+
+.add-task-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  background: #6366f1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 150ms, transform 100ms;
+  flex-shrink: 0;
+}
+
+.add-task-btn:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+.add-task-btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.add-task-btn:disabled {
+  background: #c7d2fe;
+  cursor: not-allowed;
+}
+
+/* ── Task List ────────────────────────────────────────────── */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+
+/* ── Empty State ──────────────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 0;
+  color: #9ca3af;
+}
+
+.empty-state p {
+  font-size: 0.9rem;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.todo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 16px;
+}
+
+.footer-count {
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+
+.clear-btn {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #ef4444;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 150ms;
+}
+
+.clear-btn:hover:not(:disabled) {
+  background: #fef2f2;
+}
+
+.clear-btn:disabled {
+  color: #d1d5db;
+  cursor: not-allowed;
+}
